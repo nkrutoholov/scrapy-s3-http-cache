@@ -24,7 +24,7 @@ def get_job_version():
     shub_job_version = json.loads(os.environ.get('SHUB_JOB_DATA', '{}')).get('version')
     if shub_job_version:
         return shub_job_version
-    with suppress(subprocess.CalledProcessError):
+    with suppress(subprocess.CalledProcessError, FileNotFoundError):
         git_hash = subprocess.check_output(['git', 'describe', '--always']).strip()
         return git_hash.decode('utf-8')
     return 'no-version'
