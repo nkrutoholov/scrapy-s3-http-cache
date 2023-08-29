@@ -73,12 +73,12 @@ class S3CacheStorage(object):
             raise NotConfigured('Could not get key path from S3CACHE_URI')
 
         self.access_key = u.username or settings['AWS_ACCESS_KEY_ID']
-        if self.access_key is None:
-            raise NotConfigured('AWS_ACCESS_KEY_ID must be specified')
+        # if self.access_key is None:
+        #     raise NotConfigured('AWS_ACCESS_KEY_ID must be specified')
 
         self.secret_key = u.password or settings['AWS_SECRET_ACCESS_KEY']
-        if self.secret_key is None:
-            raise NotConfigured('AWS_SECRET_ACCESS_KEY must be specified')
+        # if self.secret_key is None:
+        #     raise NotConfigured('AWS_SECRET_ACCESS_KEY must be specified')
 
         self.bucket_name = u.hostname
         if self.bucket_name is None:
